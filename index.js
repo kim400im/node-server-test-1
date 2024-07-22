@@ -4,5 +4,8 @@ let router = require('./router')
 let requestHandler = require('./requestHandler'); 
 // 모듈을 index에서 소환한다. 
 
+const mariadb = require('./database/connect/mariadb');
+mariadb.connect();
+
 server.start(router.route, requestHandler.handle);
 // start를 할 때만 서버가 실행된다.

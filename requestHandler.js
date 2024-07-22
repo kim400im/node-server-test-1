@@ -1,6 +1,12 @@
+const mariadb = require('./database/connect/mariadb');
+
 // 여기서 요청을 처리한다.
 function main(response) {
     console.log('main');
+
+    mariadb.query("select * from product", function(err, rows){
+        console.log(rows);
+    })
 
     // 이게 head
     response.writeHead(200, {'Content-Type' : 'text/html'});
